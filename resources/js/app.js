@@ -1,8 +1,12 @@
 import './bootstrap';
 import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
-import 'vue-toast-notification/dist/theme-bootstrap.css';
 import ToastPlugin from 'vue-toast-notification';
+import VueTailwindDatepicker from "vue-tailwind-datepicker";
+
+// css
+import 'vue-toast-notification/dist/theme-bootstrap.css';
+import "vue-material-time-picker/dist/style.css";
 
 createInertiaApp({
   resolve: name => {
@@ -13,6 +17,7 @@ createInertiaApp({
     createApp({ render: () => h(App, props) })
       .use(plugin)
       .use(ToastPlugin)
+      .use(VueTailwindDatepicker)
       .mount(el)
   },
 })
