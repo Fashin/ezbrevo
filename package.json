@@ -17,6 +17,7 @@
     "dependencies": {
         "@inertiajs/vue3": "^1.0.13",
         "@vitejs/plugin-vue": "^4.4.0",
-        "vue": "^3.2.36"
+        "vue": "^3.2.36",
+        "vue-toast-notification": "^3.1.1"
     }
 }

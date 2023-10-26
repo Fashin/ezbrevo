@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\CampaignController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PropertyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +24,8 @@ Route::middleware('auth.user')->group(function() {
 
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+    Route::get('/campaign', [CampaignController::class, 'index'])->name('campaign.index');
+
+    Route::get('/property', [PropertyController::class, 'index'])->name('property.index');
+    Route::put('/property/brevo_key', [PropertyController::class, 'update_brevo_key'])->name('property.update_brevo_key');
 });
