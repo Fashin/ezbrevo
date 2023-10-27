@@ -1,11 +1,13 @@
 <script setup>
-    import VueTailwindDatepicker from "vue-tailwind-datepicker";
-    import { TimePicker } from "vue-material-time-picker";
+    import VueTailwindDatepicker from "vue-tailwind-datepicker"
+    import { TimePicker } from "vue-material-time-picker"
+    import { reactive, ref } from "vue"
+    import VueMultiselect from 'vue-multiselect'
     import Layout from "../../Components/Layout.vue"
     import Modal from "../../Components/Modal.vue"
     import CustomButton from "../../Components/CustomButton.vue"
-    import { reactive, ref } from "vue"
 
+    const props = defineProps(['leads'])
     const dateValue = ref([])
     const time = ref(null)
     const dateFormatter = ref({
@@ -15,8 +17,13 @@
         isVisible: false,
         isVisibleTime: false,
         name: "",
-        template_id: ""
+        template_id: "",
+        leadValue: null
     })
+
+    const setLeads = (lead) => {
+
+    }
 
     const onModalValidate = () => {
 
@@ -93,6 +100,15 @@
 
                     <label for="leads">Utilisateurs concernés</label>
 
+                    <!-- https://vue-multiselect.js.org/#sub-multiple-select -->
+                    <VueMultiselect
+                        v-model="state.leadValue"
+                        :options="props.leads"
+                        :multiple="true"
+                        label="email"
+                        track-by="email"
+                    >
+                    </VueMultiselect>
                 </form>
             </modal>
         </div>

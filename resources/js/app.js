@@ -7,6 +7,7 @@ import VueTailwindDatepicker from "vue-tailwind-datepicker";
 // css
 import 'vue-toast-notification/dist/theme-bootstrap.css';
 import "vue-material-time-picker/dist/style.css";
+import "vue-multiselect/dist/vue-multiselect.css";
 
 createInertiaApp({
   resolve: name => {
