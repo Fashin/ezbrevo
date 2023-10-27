@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('role')->default('user');
             $table->string('brevo_key')->nullable();
+            $table->boolean('has_first_sync_leads')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

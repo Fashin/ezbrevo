@@ -1,5 +1,21 @@
 <script setup>
-    defineProps(['visible', 'hasValidate'])
+    defineProps({
+        visible: {
+            type: Boolean,
+            required: true,
+            default: false
+        },
+        hasValidate: {
+            type: Boolean,
+            required: false,
+            default: false
+        },
+        hasClose: {
+            type: Boolean,
+            required: false,
+            default: true
+        }
+    })
     defineEmits(['onClose', 'onValidate'])
 </script>
 
@@ -12,7 +28,7 @@
                     <div class="text-center p-3 flex-auto justify-center leading-6">
                         <slot/>
                         <div class="p-3 mt-2 text-center space-x-4 md:block">
-                            <button @click="$emit('onClose', false)"  class="mb-2 md:mb-0 bg-slate-500 border border-slate-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-md hover:shadow-lg hover:bg-slate-600">
+                            <button v-if="hasClose" @click="$emit('onClose', false)"  class="mb-2 md:mb-0 bg-slate-500 border border-slate-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-md hover:shadow-lg hover:bg-slate-600">
                                 Fermer
                             </button>
                             <button v-if="hasValidate"

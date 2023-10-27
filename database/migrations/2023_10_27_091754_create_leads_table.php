@@ -11,17 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('campaigns', function (Blueprint $table) {
+        Schema::create('leads', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->date('ended_at')->nullable();
-            $table->integer('progression')->default(0);
-            $table->integer('template_id');
+            $table->string('email');
+            $table->integer('brevo_id');
+            $table->string('department')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
+
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('campaigns');
+        Schema::dropIfExists('leads');
     }
 };

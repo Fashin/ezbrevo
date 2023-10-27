@@ -28,4 +28,6 @@ Route::middleware('auth.user')->group(function() {
 
     Route::get('/property', [PropertyController::class, 'index'])->name('property.index');
     Route::put('/property/brevo_key', [PropertyController::class, 'update_brevo_key'])->name('property.update_brevo_key');
+    Route::post('/property/sync_leads', [PropertyController::class, 'sync_leads'])->name('property.sync_leads');
+    Route::post('/property/get_sync_leads', [PropertyController::class, 'get_sync_leads'])->name('property.get_sync_leads');
 });
